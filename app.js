@@ -3,6 +3,7 @@
 var commander = require('commander')
   , authenticate = require('./lib/authenticate')
   , authorize = require('./lib/authorize')
+  , publish = require('./lib/publish')
   , pkg = require('./package')
   , async = require('async')
   , mosca = require('mosca');
@@ -16,13 +17,13 @@ function config(program, opts) {
       factory: mosca.persistence.Memory
     }
   };
-
+  
   var opts = defopts;
 
   opts.port = program.port;
   
   if (program.parentPort || program.parentHost) {
-    opts.backend.type = "mqtt";
+    opts.backend.type = 'mqtt';
     opts.backend.port = 1883;
   }
   
@@ -51,7 +52,7 @@ function config(program, opts) {
       opts.allowNonSecure = program.nonSecure;
     }
     else {
-      throw new Error("Must supply both private key and signed certificate to create secure mosca server");
+      throw new Error('Must supply both private key and signed certificate to create secure mosca server');
     }
   }
   
@@ -72,7 +73,7 @@ function config(program, opts) {
         bundle: program.httpsBundle
       };
     } else {
-      throw new Error("Must supply both private key and signed certificate to create secure mosca websocket server");
+      throw new Error('Must supply both private key and signed certificate to create secure mosca websocket server');
     }
   }
   
@@ -111,6 +112,7 @@ function start(program, fn) {
       server.authenticate = authenticate;
       server.authorizeSubscribe = authorize.subscribe;
       server.authorizePublish = authorize.publish;
+      server.publish = publish;
       
       if (fn) {
 	fn(null, server);
