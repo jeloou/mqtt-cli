@@ -1,0 +1,20 @@
+{
+  "name": "mqtt-server",
+  "version": "0.0.0",
+  "description": "jull.io's MQTT server",
+  "author": "Joseph Núñez",
+  "private": true,
+  "keywords": [
+  ],
+  "dependencies": {
+    "mosca": "~0.18.0",
+    "commander": "~2.1.0",
+    "async": "~0.2.10"
+  },
+  "devDependencies": {
+    "mocha": "~1.13.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
