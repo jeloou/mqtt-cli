@@ -111,6 +111,10 @@ function start(program, fn) {
     
     setup = function(fn) {
       db.get(function(err, db) {
+	if (err) {
+	  return fn(err, null);
+	}
+	
 	server.authenticate = authenticate;
 	server.authorizeSubscribe = authorize.subscribe;
 	server.authorizePublish = authorize.publish;
