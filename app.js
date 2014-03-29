@@ -4,6 +4,7 @@ var commander = require('commander')
   , authenticate = require('./lib/authenticate')
   , authorize = require('./lib/authorize')
   , publish = require('./lib/publish')
+  , db = require('./lib/database')
   , pkg = require('./package')
   , async = require('async')
   , mosca = require('mosca');
@@ -109,14 +110,16 @@ function start(program, fn) {
     opts = config(program, opts);
     
     setup = function(fn) {
-      server.authenticate = authenticate;
-      server.authorizeSubscribe = authorize.subscribe;
-      server.authorizePublish = authorize.publish;
-      server.publish = publish;
-      
-      if (fn) {
-	fn(null, server);
-      }
+      db.get(function(err, db) {
+	server.authenticate = authenticate;
+	server.authorizeSubscribe = authorize.subscribe;
+	server.authorizePublish = authorize.publish;
+	server.publish = publish;
+	
+	if (fn) {
+	  fn(null, server);
+	}
+      });
     };
 
     async.series([
