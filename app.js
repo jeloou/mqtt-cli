@@ -4,6 +4,7 @@ var commander = require('commander')
   , authenticate = require('./lib/authenticate')
   , authorize = require('./lib/authorize')
   , publish = require('./lib/publish')
+  , store = require('./lib/store')
   , db = require('./lib/database')
   , pkg = require('./package')
   , async = require('async')
@@ -119,6 +120,7 @@ function start(program, fn) {
 	server.authorizeSubscribe = authorize.subscribe;
 	server.authorizePublish = authorize.publish;
 	server.publish = publish;
+	server.storePacket = store;
 	
 	if (fn) {
 	  fn(null, server);
