@@ -8,7 +8,8 @@ var commander = require('commander')
   , db = require('./lib/database')
   , pkg = require('./package')
   , async = require('async')
-  , mosca = require('mosca');
+  , mosca = require('mosca')
+  , path = require('path');
 
 function config(program, opts) {
   var defopts = {
