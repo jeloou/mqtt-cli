@@ -121,7 +121,7 @@ function start(program, fn) {
 	server.authorizeSubscribe = authorize.subscribe;
 	server.authorizePublish = authorize.publish;
 	server.publish = publish;
-	server.storePacket = store;
+	server.storePacket = store(opts);
 	
 	if (fn) {
 	  fn(null, server);
