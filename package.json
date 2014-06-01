@@ -1,11 +1,32 @@
 {
-  "name": "mqtt-server",
-  "version": "0.0.0",
-  "description": "jull.io's MQTT server",
-  "author": "Joseph Núñez",
+  "name": "mqtt-cli",
+  "description": "A cli for running mosca",
+  "version": "0.0.1",
+  "homepage": "http://jull.io",
+  "author": {
+    "name": "Joseph Núñez <toctochello@gmail.com>",
+    "email": "toctochello@gmail.com"
+  },
   "private": true,
   "keywords": [
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jeloou/mqtt-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeloou/mqtt-cli/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jeloou/mqtt-cli/blob/master/LICENSE"
+    }
+  ],
+  "main": "app",
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "dependencies": {
     "mosca": "~0.18.0",
     "commander": "~2.1.0",
@@ -17,6 +38,6 @@
     "mocha": "~1.13.0"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "./bin/run"
   }
 }
