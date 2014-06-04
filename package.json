@@ -3,6 +3,9 @@
   "description": "A cli for running mosca",
   "version": "0.0.1",
   "homepage": "http://jull.io",
+  "bin": {
+    "mqtt-cli": "./bin/run"
+  },
   "author": {
     "name": "Joseph Núñez <toctochello@gmail.com>",
     "email": "toctochello@gmail.com"

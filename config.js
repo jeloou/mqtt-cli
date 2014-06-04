@@ -17,11 +17,12 @@ module.exports = {
     port: 6379,
     host: 'localhost'
   },
-  /*
   secure: {
     keyPath: "/path/to/key",
     certPath: "/path/to/cert"
-  }
-  */
+  },
+  /*
+    Uses MongoDB as authentication database
+   */
   authdb: 'mongodb://localhost/dev'
 };
