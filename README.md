@@ -21,12 +21,10 @@ You can run it using all the options available in mosca. `config.js`  is a examp
 mqtt-cli -c config.js -v 
 ```
 
-
-
 ### Contributing
 
 Feel free to open a pull request with a nice feature or a fix for some bug.
 
 ### License
 
-See the `LICENSE.md` file.
+See the `LICENSE` file.
